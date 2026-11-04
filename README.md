@@ -5,19 +5,10 @@ la app lo instala como dependencia y los agentes (Cursor, Claude Code) leen sus 
 y documentación desde aquí.
 
 ## Instalación
-
-El paquete se publica en GitHub Packages. En la app, crea un `.npmrc` (hay un ejemplo
-en `.npmrc.example`) con el scope de la organización y un token con permiso
-`read:packages`, y luego:
+Funciona instalándolo directo del repo; se compila solo al instalar:
 
 ```bash
-npm install @dale/ui
-```
-
-Sin registry también funciona instalándolo directo del repo; se compila solo al instalar:
-
-```bash
-npm install github:<org>/dale-design-system#v0.1.0
+npm install github:jorgeecarvajal/dale-design-system
 ```
 
 Requiere React 18 o 19.
