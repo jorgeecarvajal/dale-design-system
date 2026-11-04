@@ -1,0 +1,4 @@
+/* @dale/ui — everything the components need: tokens, fonts, base defaults.
+   Inter and Montserrat come from Google Fonts: add the <link> from the README to index.html. */
+@import "./tokens.css";
+@import "./base.css";

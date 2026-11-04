@@ -1,0 +1,1 @@
+Alias of `NavigationBar` under the kit's own set name `Navigation Bar / Pestaña`: a single tab: its `children` string is the label, plus `active`, `onChange`, `style`, `className`. Prefer `NavigationBar` in product code; see its guidelines.

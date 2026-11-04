@@ -1,0 +1,17 @@
+---
+description: Dale Design System — use @dale/ui components and Dale tokens for all UI
+globs: ["**/*.tsx", "**/*.jsx", "**/*.css"]
+alwaysApply: false
+---
+
+# Dale Design System
+
+This app's UI is built with `@dale/ui`. When writing or changing UI:
+
+1. Use an `@dale/ui` component if one exists (`Button`, `Tables`, `InputField`, `Dropdown`, `Dialog`, `Chips`, `Sidebar`, `NavigationBar`, `Icon`…). Check props in `node_modules/@dale/ui/types/index.d.ts` and usage in `node_modules/@dale/ui/docs/components/<Name>.md`.
+2. Colours only from Dale tokens: Tailwind `bg-surface-app`, `bg-surface-card`, `text-text-body`, `border-border-subtle`… or `var(--token)`. No hex values, no Tailwind default palette.
+3. Spacing from the Dale steps (`p-dale-37`, `gap-dale-30`, `p-content-pad`). It is not an 8px grid.
+4. Corners `rounded-dale-*`, the only shadow is `shadow-flyout`, cards are flat.
+5. Inter for product UI; Gilroy (`font-display`) only for brand moments. Icons only through `<Icon name="…" />`.
+
+Full rules: @AGENTS.md (section "UI: Dale Design System"). Brand book: `node_modules/@dale/ui/docs/BRAND.md`.

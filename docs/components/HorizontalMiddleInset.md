@@ -1,0 +1,1 @@
+Alias of `Divider` under the kit's own set name `Horizontal/Middle-inset`: `Divider` with `variant="middle-inset"`; takes `tone`, `style`, `className`. Prefer `Divider` in product code; see its guidelines.

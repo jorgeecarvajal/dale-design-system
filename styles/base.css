@@ -1,0 +1,154 @@
+/* Dale — what tokens.json cannot hold: easing and durations, the active-rail
+   radius, Figma Variables that point at other variables, and their class and
+   per-colour modes. Everything else lives in tokens/tokens.json. */
+
+:root {
+  --radius-indicator: 20px 10px 10px 20px; /* active nav rail */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+
+  /* Figma Variables that point at other variables */
+  --family-sans: "Inter";
+  --body-font-family: var(--family-sans);
+  --body-font-weight-regular: var(--weight-regular);
+  --body-size-medium: var(--scale-03);
+}
+
+/* Class hooks for the Figma Variables' light / dark modes
+   ([data-theme] is declared in tokens.css). */
+.light {
+  --schemes-on-primary: rgb(255,255,255);
+}
+.dark {
+  --background-default-default: var(--gray-900);
+  --background-disabled-default: var(--gray-700);
+  --border-danger-default: var(--red-200);
+  --border-default-default: var(--gray-600);
+  --border-disabled-default: var(--gray-600);
+  --border-neutral-default: var(--slate-100);
+  --schemes-on-primary: rgb(0,0,0);
+  --schemes-on-primary: rgb(27,9,66);
+  --schemes-on-primary: rgb(56,30,114);
+  --text-danger-default: var(--red-200);
+  --text-default-default: var(--white-1000);
+  --text-default-secondary: var(--white-500);
+  --text-default-tertiary: var(--white-400);
+  --text-disabled-default: var(--gray-500);
+  --text-disabled-on-disabled: var(--gray-400);
+}
+
+/* The Figma Variables' per-colour modes */
+:root[data-mode="monochrome-lt"] {
+  --schemes-on-primary: rgb(226,226,226);
+}
+
+:root[data-mode="monochrome-dt"] {
+  --schemes-on-primary: rgb(26,28,28);
+}
+
+:root[data-mode="pink-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="pink-dt"] {
+  --schemes-on-primary: rgb(83,29,57);
+}
+
+:root[data-mode="rose-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="rose-dt"] {
+  --schemes-on-primary: rgb(86,29,41);
+}
+
+:root[data-mode="red-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="red-dt"] {
+  --schemes-on-primary: rgb(86,30,24);
+}
+
+:root[data-mode="orange-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="orange-dt"] {
+  --schemes-on-primary: rgb(83,34,0);
+}
+
+:root[data-mode="yellow-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="yellow-dt"] {
+  --schemes-on-primary: rgb(63,46,0);
+}
+
+:root[data-mode="chartreuse-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="chartreuse-dt"] {
+  --schemes-on-primary: rgb(45,52,0);
+}
+
+:root[data-mode="green-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="green-dt"] {
+  --schemes-on-primary: rgb(0,57,19);
+}
+
+:root[data-mode="teal-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="teal-dt"] {
+  --schemes-on-primary: rgb(0,55,49);
+}
+
+:root[data-mode="cyan-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="cyan-dt"] {
+  --schemes-on-primary: rgb(0,54,66);
+}
+
+:root[data-mode="blue-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="blue-dt"] {
+  --schemes-on-primary: rgb(21,46,96);
+}
+
+:root[data-mode="indigo-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="indigo-dt"] {
+  --schemes-on-primary: rgb(45,41,96);
+}
+
+:root[data-mode="purple-lt"] {
+  --schemes-on-primary: rgb(255,255,255);
+}
+
+:root[data-mode="purple-dt"] {
+  --schemes-on-primary: rgb(59,37,90);
+}
+
+.dale-page-title { color: var(--dale-black); }
+
+/* Minimal global defaults for Dale surfaces, in the base layer so Tailwind
+   utilities still win over them. */
+@layer base {
+  body { font-family: var(--font-ui); color: var(--text-body); background: var(--surface-app); }
+  a { color: var(--text-link); text-decoration: none; }
+  a:hover { color: var(--text-link-hover); text-decoration: underline; }
+}

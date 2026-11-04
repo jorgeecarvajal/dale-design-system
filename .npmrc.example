@@ -1,0 +1,5 @@
+# Copy to the app's .npmrc. Replace <org> with the GitHub organisation that owns the
+# package (the npm scope must match it, e.g. @dale -> github.com/dale) and set
+# GITHUB_TOKEN to a token with read:packages.
+@dale:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
