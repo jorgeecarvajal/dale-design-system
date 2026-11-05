@@ -1,5 +1,10 @@
-# Copy to the app's .npmrc. Replace <org> with the GitHub organisation that owns the
-# package (the npm scope must match it, e.g. @dale -> github.com/dale) and set
-# GITHUB_TOKEN to a token with read:packages.
-@dale:registry=https://npm.pkg.github.com
+# Only for the GitHub Packages route (see README → Alternativa: GitHub Packages).
+# Installing from GitHub (npm install github:jorgeecarvajal/dale-design-system#vX.Y.Z)
+# needs no .npmrc.
+#
+# GitHub Packages requires the npm scope to match the repo owner: @jorgeecarvajal while the
+# repo lives in that account (package name @jorgeecarvajal/ui), or @dale if it moves to a
+# "dale" organisation. Copy to the app's .npmrc and set GITHUB_TOKEN to a token with
+# read:packages.
+@jorgeecarvajal:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}

@@ -1,0 +1,6 @@
+/* The setup every Dale app uses (see the package README). */
+@import "tailwindcss";
+@import "@dale/ui/styles.css";
+@import "@dale/ui/tailwind/theme.css";
+
+html, body, #root { height: 100%; }

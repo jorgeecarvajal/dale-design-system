@@ -15,6 +15,9 @@ for using it are in `templates/` (copy those into each app).
 - `types/index.d.ts` — public props for every component. Update it with any prop change.
 - `docs/components/<Name>.md` — usage notes; first sentence is the summary.
 - `docs/BRAND.md` — the brand book (colour, type, spacing, iconography, copy rules).
+- `examples/admin/` — the admin screens built with the package (Vite app). It imports
+  only from `@dale/ui`; when a component's API changes, update the example and check it
+  still builds (`cd examples/admin && npm install && npm run build`).
 
 ## Rules
 

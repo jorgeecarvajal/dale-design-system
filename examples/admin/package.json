@@ -1,0 +1,22 @@
+{
+  "name": "dale-admin-example",
+  "private": true,
+  "type": "module",
+  "description": "Reference implementation of the Dale admin screens, built only with @dale/ui.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@dale/ui": "file:../..",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@vitejs/plugin-react": "6.1.2",
+    "tailwindcss": "4.3.3",
+    "vite": "8.3.4"
+  }
+}

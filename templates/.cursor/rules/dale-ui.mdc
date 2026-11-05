@@ -8,10 +8,11 @@ alwaysApply: false
 
 This app's UI is built with `@dale/ui`. When writing or changing UI:
 
+0. Read the Figma frame with the Figma MCP tools first; if you can't, stop and say so. Then read the matching screen in `node_modules/@dale/ui/examples/admin/src/` (map in its `README.md`) and follow its structure. Figma wins where they differ.
 1. Use an `@dale/ui` component if one exists (`Button`, `Tables`, `InputField`, `Dropdown`, `Dialog`, `Chips`, `Sidebar`, `NavigationBar`, `Icon`…). Check props in `node_modules/@dale/ui/types/index.d.ts` and usage in `node_modules/@dale/ui/docs/components/<Name>.md`.
 2. Colours only from Dale tokens: Tailwind `bg-surface-app`, `bg-surface-card`, `text-text-body`, `border-border-subtle`… or `var(--token)`. No hex values, no Tailwind default palette.
 3. Spacing from the Dale steps (`p-dale-37`, `gap-dale-30`, `p-content-pad`). It is not an 8px grid.
-4. Corners `rounded-dale-*`, the only shadow is `shadow-flyout`, cards are flat.
+4. Corners `rounded-dale-*`, the only shadow is `shadow-flyout`, the content card is flat. Exact Figma values win: when no token matches, use the exact value (`rounded-[12px]`).
 5. Inter for product UI; Gilroy (`font-display`) only for brand moments. Icons only through `<Icon name="…" />`.
 
 Full rules: @AGENTS.md (section "UI: Dale Design System"). Brand book: `node_modules/@dale/ui/docs/BRAND.md`.

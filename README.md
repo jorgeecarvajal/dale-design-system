@@ -6,21 +6,33 @@ y documentación desde aquí.
 
 ## Instalación
 
-El paquete se publica en GitHub Packages. En la app, crea un `.npmrc` (hay un ejemplo
-en `.npmrc.example`) con el scope de la organización y un token con permiso
-`read:packages`, y luego:
+En la app (no en este repo), se instala directo desde GitHub, fijando una versión con su tag:
 
 ```bash
-npm install @dale/ui
+npm install github:jorgeecarvajal/dale-design-system#v0.2.0
 ```
 
-Sin registry también funciona instalándolo directo del repo; se compila solo al instalar:
+npm descarga el repo y compila el paquete al instalarlo. En el código se importa como
+`@dale/ui`, que es el nombre del `package.json`. Si el repo es privado, cada dev necesita
+acceso a él con su cuenta de GitHub (en Windows lo resuelve Git Credential Manager).
 
-```bash
-npm install github:<org>/dale-design-system#v0.1.0
-```
+`npm install @dale/ui` a secas **no** funciona: busca en el registro público de npm,
+donde el paquete no está publicado.
 
 Requiere React 18 o 19.
+
+### Publicar una versión nueva
+
+1. Sube `version` en `package.json` y anota el cambio en `CHANGELOG.md`.
+2. `git commit`, luego `git tag v0.x.y`, `git push` y `git push origin v0.x.y`.
+3. En la app: `npm install github:jorgeecarvajal/dale-design-system#v0.x.y`.
+
+### Alternativa: GitHub Packages
+
+Para instalarlo como `npm install @scope/ui` desde un registro privado, GitHub Packages
+exige que el scope sea el dueño del repo: `@jorgeecarvajal/ui` mientras el repo esté en tu
+cuenta, o `@dale/ui` si se mueve a una organización llamada `dale`. Habría que cambiar
+`name` en `package.json` (y los imports de las apps) y usar el `.npmrc.example`.
 
 ## Uso con Vite + Tailwind v4
 
@@ -99,6 +111,22 @@ Los colores apuntan a variables CSS, así que cambiar `data-theme` en `<html>` t
 cambia las clases de Tailwind. Sin Tailwind, todo está disponible como `var(--token)`
 y como clases `.dale-page-title`, `.dale-body`, etc.
 
+## Ejemplo de referencia: las pantallas del admin
+
+`examples/admin/` es una app Vite con las pantallas del admin recreadas desde los frames
+Hi-Res de Figma, usando solo `@dale/ui`: Dashboard, Operations › Transactions con su
+detalle, Agent Network, Aggregators, Reconciliation, Pricing y Config. Su README dice qué
+nodo de Figma recrea cada archivo y en qué se aparta del diseño.
+
+```bash
+npm install && npm run build      # en la raíz, una vez
+cd examples/admin && npm install && npm run dev
+```
+
+El código de las pantallas (`examples/admin/src/`) viaja dentro del paquete, así que en la
+app queda en `node_modules/@dale/ui/examples/admin/` para que Cursor lo use de referencia.
+Si el ejemplo y Figma no coinciden, manda Figma.
+
 ## Para Cursor y otros agentes
 
 Copia a la raíz del repo de la app:
@@ -121,6 +149,7 @@ Las reglas son cortas y apuntan a los archivos del paquete (`types/index.d.ts`,
 | `docs/` | Brand book y notas por componente |
 | `fonts/`, `assets/` | Gilroy, logo, chevrones, íconos del header |
 | `templates/` | Reglas para la app que consume el paquete |
+| `examples/admin/` | Pantallas del admin de referencia (app Vite) |
 
 ## Mantener el paquete
 
